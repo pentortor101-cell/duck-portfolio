@@ -17,7 +17,7 @@ app.innerHTML = `
     <div class="who">${profile.name}<small>${profile.title}</small></div>
     <div class="links">
       <button class="btn" id="toggle-view">ดูแบบปกติ</button>
-      <a class="btn primary" href="mailto:${contact.email}">ติดต่อ</a>
+      <button class="btn primary" id="print-btn">พิมพ์ Resume</button>
     </div>
   </div>
 
@@ -113,7 +113,7 @@ function sectionBody(key: SectionKey): string {
   return `
     <div class="contact-row"><span class="k">Email</span><a href="mailto:${contact.email}">${contact.email}</a></div>
     <div class="contact-row"><span class="k">โทร</span><a href="tel:${contact.phone.replace(/-/g, "")}">${contact.phone}</a></div>
-    <div class="contact-row"><span class="k">Facebook</span><span>${contact.facebook.label}</span></div>
+    <div class="contact-row"><span class="k">Facebook</span><a href="${contact.facebook.url}" target="_blank" rel="noopener">${contact.facebook.label}</a></div>
     <div class="contact-row"><span class="k">LINE</span><span>${contact.line}</span></div>
     <div class="contact-row"><span class="k">Instagram</span><a href="${contact.ig.url}" target="_blank" rel="noopener">@${contact.ig.label}</a></div>`;
 }
@@ -183,6 +183,20 @@ toggleBtn.addEventListener("click", () => {
   toggleBtn.textContent = showingResume ? "เล่นเกม" : "ดูแบบปกติ";
   if (showingResume) game.pause();
   else game.resume();
+});
+
+// ---------- print ----------
+document.querySelector("#print-btn")!.addEventListener("click", () => {
+  if (showingResume) {
+    window.print();
+  } else {
+    showingResume = true;
+    gameView.style.display = "none";
+    resumeView.classList.add("show");
+    toggleBtn.textContent = "เล่นเกม";
+    game.pause();
+    setTimeout(() => window.print(), 100);
+  }
 });
 
 // ---------- start game ----------

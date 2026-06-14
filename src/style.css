@@ -15,6 +15,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 html {
@@ -293,9 +294,11 @@ body {
 .contact-row .k {
   color: var(--ink-faint);
 }
-.contact-row a {
+.contact-row a,
+.contact-row span:not(.k) {
   color: var(--accent);
   text-decoration: none;
+  user-select: text;
 }
 
 /* ---------- resume / normal view ---------- */
@@ -394,6 +397,27 @@ footer {
   #game-canvas {
     cursor: crosshair;
   }
+}
+
+@media print {
+  .topbar, #game-view, footer, .modal-back { display: none !important; }
+  #resume-view { display: block !important; }
+  #app { padding: 0; max-width: 100%; }
+  body { background: #fff; font-size: 12px; }
+  .resume { padding-top: 0; }
+  .resume section {
+    border: none;
+    padding: 8px 0;
+    margin-bottom: 6px;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .resume h2 { font-size: 14px; margin-bottom: 8px; }
+  .exp-row { padding: 5px 0; }
+  .proj { padding: 6px 0; margin-bottom: 6px; }
+  .chip { font-size: 11px; padding: 3px 8px; }
+  .profile-img { width: 72px; height: 72px; }
+  .bio p { margin-bottom: 3px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

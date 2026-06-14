@@ -91,7 +91,7 @@ export const education = {
 export const contact = {
   email: "pentortor101@gmail.com",
   phone: "090-981-5582",
-  facebook: { label: "ต่อ เมธาวี", url: "#" },
+  facebook: { label: "ต่อ เมธาวี", url: "https://www.facebook.com/tx.methawi/" },
   line: "torjamaline",
   ig: { label: "tor_mtv", url: "https://instagram.com/tor_mtv" },
 };
