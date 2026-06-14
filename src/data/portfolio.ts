@@ -24,6 +24,10 @@ export const skills: { group: string; items: string[] }[] = [
     items: ["Visual Studio", "Android Studio", "WordPress", "Wix", "Microsoft 365", "Power Automate"],
   },
   {
+    group: "AI Tools",
+    items: ["ChatGPT", "Claude", "Copilot"],
+  },
+  {
     group: "Other",
     items: ["Adobe Photoshop", "MS Word / Excel", "การเข้าสาย LAN (cat5/cat6/fiber optic)"],
   },

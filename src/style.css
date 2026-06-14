@@ -352,11 +352,36 @@ body {
   white-space: nowrap;
 }
 
+.about-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--line);
+}
+@media (max-width: 480px) {
+  .about-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 footer {
   text-align: center;
   color: var(--ink-faint);
   font-size: 12px;
   padding-top: 30px;
+}
+.ai-badge {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 500;
 }
 
 @media (max-width: 560px) {

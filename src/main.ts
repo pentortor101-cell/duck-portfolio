@@ -44,7 +44,7 @@ app.innerHTML = `
     ${renderResume()}
   </div>
 
-  <footer>© ${new Date().getFullYear()} ${profile.name} · พอร์ตโฟลิโอแบบเกมยิงเป็ด · สร้างด้วย Canvas + TypeScript</footer>
+  <footer>© ${new Date().getFullYear()} ${profile.name} · พอร์ตโฟลิโอแบบเกมยิงเป็ด · สร้างด้วย Canvas + TypeScript · <span class="ai-badge">✦ สร้างด้วยความช่วยเหลือของ AI</span></footer>
 
   <div class="modal-back" id="modal-back">
     <div class="modal">
@@ -123,7 +123,10 @@ function renderResume(): string {
   return `
   <section>
     <h2>About</h2>
-    <div class="bio">${profile.bio.map((l) => `<p>${l}</p>`).join("")}</div>
+    <div class="about-wrap">
+      <img class="profile-img" src="/tor.jpg" alt="${profile.name}" />
+      <div class="bio">${profile.bio.map((l) => `<p>${l}</p>`).join("")}</div>
+    </div>
   </section>
   <section>
     <h2>Skills</h2>
